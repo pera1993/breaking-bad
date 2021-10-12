@@ -1,0 +1,21 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "first_name": "Petar",
+      "last_name": "Gavrilovic",
+      "email": "petar.gavrilovic14@gmail.com",
+      "username": "pera1993",
+      "password": "pera14",
+      "admin": true
+    },
+    {
+      "first_name": "Mila",
+      "last_name": "Gavrilovic",
+      "email": "mila@gmail.com",
+      "username": "mila1997",
+      "password": "mila1997",
+      "id": 2
+    }
+  ]
+}

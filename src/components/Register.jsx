@@ -1,11 +1,10 @@
 import { useState } from "react"
-import { Link, useHistory } from "react-router-dom"
+import { useHistory } from "react-router-dom"
 import StyledForm from "./Styled Components/StyledForm"
 import StyledInput from "./Styled Components/StyledInput"
 import { registerUser } from "../service"
+import { formDivStyle } from "./Styled Components/styleVariables"
 
-// TREBACE MI STYLED FORM da stilizujem sve lepo umesto da ubacujem
-// style u otvarajuci tag
 
 const Register = ({ setUser }) => {
 
@@ -20,25 +19,18 @@ const Register = ({ setUser }) => {
     //dole history.push(`/characters`) push govori na koju putanju da se ode
 
     return (
-        <div style={{
-            width: `100%`,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center', background: "transparent"
-        }}>
+        <div style={formDivStyle}>
             <StyledForm
                 onSubmit={(e) => {
                     e.preventDefault()
-                    // prvo treba validacija
-                    // pa se pravi user
                     if (password === repeatPass) {
-                        let newUser = { first_name: firstName, last_name: lastName, email: email, username: username, password: password }
+                        let newUser = { first_name: firstName, last_name: lastName, email: email, username: username, password: password, favorites: [] }
                         registerUser(newUser).then(res => {
-                            console.log(res.data)
+                            //console.log(res.data)
                             history.push(`/characters`)
                         })
                     } else {
-                        console.log(`Nije tacno ponovljena lozinka`)
+                        //console.log(`Nije tacno ponovljena lozinka`)
                     }
 
                 }} >
@@ -55,10 +47,7 @@ const Register = ({ setUser }) => {
                     onChange={(e) => { setPassword(e.target.value) }} /><br />
                 <StyledInput type="password" placeholder="Repeat password"
                     onChange={(e) => { setRepeatPass(e.target.value) }} /><br />
-                <StyledInput type="submit" value="Login" /><br />
-                <div>
-                    <Link to="/register"><p>If you`re not registered, click here!</p></Link>
-                </div>
+                <StyledInput type="submit" value="Register" /><br />
             </StyledForm>
 
 

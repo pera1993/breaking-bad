@@ -5,11 +5,11 @@ import Lik from "./Lik"
 import Search from "./Search"
 import StyledGrid from "./Styled Components/StyledGrid"
 
-// hocu i search da ubacim
 
 const Likovi = ({ loggedIn }) => {
     const [characters, setCharacters] = useState([])
     const [searchQ, setSearchQ] = useState(``)
+    const [random, setRandom] = useState(null)
 
     useEffect(() => {
         let mounted = true
@@ -23,11 +23,13 @@ const Likovi = ({ loggedIn }) => {
 
         return () => { mounted = false }
     }, [loggedIn])
+
     return loggedIn ?
         <div>
-            <Search setSearchQ={setSearchQ}/>
+            <Search setSearchQ={setSearchQ} setRandom={setRandom}/>
             <StyledGrid za grid>
-            {characters.map(character => <Lik key={character.char_id} character={character} />)}
+            {random ? <Lik key={characters[random].char_id} character={characters[random]} /> : 
+            characters.filter(char => char.name.toLowerCase().includes(searchQ)).map(character => <Lik key={character.char_id} character={character} />)}
             </StyledGrid>
         </div>
         :

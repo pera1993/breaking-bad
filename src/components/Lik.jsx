@@ -31,7 +31,7 @@ const Lik = ({ character }) => {
                 
                 
                 <h2 style={{color: `white`, textAlign: `center` }}>{character.name}</h2>
-                <p>Actor: {character.portrayed}</p>
+               
             </StyledCharacter>
         
     )

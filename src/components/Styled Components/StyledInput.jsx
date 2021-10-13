@@ -9,7 +9,7 @@ padding: 0.25em 0.5em;
 background-color: #fff;
 border: 2px solid var(--input-border);
 border-radius: 4px; 
-width: 90%;
+
 `
 
 export default StyledInput

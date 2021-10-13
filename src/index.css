@@ -1,8 +1,12 @@
 
-html { 
-  background: url(imgs/BB6.png) no-repeat center center fixed; 
+body {
+  min-height: 100vh;
+  margin: 0;
+  background: linear-gradient( rgba(0, 0, 0, 0.5) 0%, rgba(255, 255, 255, 0.5) 100% ), url('imgs/BB6.png');
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }

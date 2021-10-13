@@ -3,6 +3,7 @@ import { Link, useHistory } from "react-router-dom"
 import StyledForm from "./Styled Components/StyledForm"
 import StyledInput from "./Styled Components/StyledInput"
 import { getAllUsers } from "../service"
+import { formDivStyle, linkStyle } from "./Styled Components/styleVariables"
 
 // TREBACE MI STYLED FORM da stilizujem sve lepo umesto da ubacujem
 // style u otvarajuci tag
@@ -14,12 +15,7 @@ const Login = ({ setUser }) => {
     //dole history.push(`/characters`) push govori na koju putanju da se ode
 
     return (
-        <div style={{
-            width: `100%`,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center', background: "transparent"
-        }}>
+        <div style={formDivStyle}>
             <StyledForm
                 onSubmit={(e) => {
                     e.preventDefault()
@@ -42,15 +38,13 @@ const Login = ({ setUser }) => {
                 <h2>LOGIN</h2>
                 <StyledInput type="text" placeholder="Email or username..."
                     onChange={(e) => { setUsername(e.target.value) }} /><br />
-                <StyledInput type="password" placeholder="Password"
+                <StyledInput type="password" placeholder="Password..."
                     onChange={(e) => { setPassword(e.target.value) }} /><br />
                 <StyledInput type="submit" value="Login" /><br />
-                <div>
-                    <Link to="/register"><p>If you`re not registered, click here!</p></Link>
+                <div >
+                    <Link style={linkStyle} to="/register">If you`re not registered, click here!</Link>
                 </div>
             </StyledForm>
-
-
         </div>
     )
 }

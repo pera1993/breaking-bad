@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import './App.css';
 import Header from './components/Header/Header';
 import Home from './components/Home';
 import Login from './components/Login';
 import Register from './components/Register';
 import Likovi from './components/Likovi';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom"
-import { linkStyle, navStyle } from './components/Styled Components/styleVariables';
+import { btnLogout, linkStyle, navStyle, userDiv } from './components/Styled Components/styleVariables';
 
 
 
@@ -22,8 +21,14 @@ function App() {
         <Link style={linkStyle} to="/login">Login</Link>
         <Link style={linkStyle} to="/register">Register</Link>
         <Link style={linkStyle} to="/characters">Characters</Link>
-        {user?  <button onClick={()=> {setUser(null)}}>Log Out</button> : ``}
-       
+        {user ? 
+        <div style={userDiv}>
+          <div>{user.username}</div>
+           <button style={btnLogout} onClick={() => { setUser(null) }}>Log Out</button>
+       </div> 
+       :
+        ``}
+
       </nav>
       <Switch>
         <Route exact path="/">

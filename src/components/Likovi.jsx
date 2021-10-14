@@ -28,7 +28,7 @@ const Likovi = ({ loggedIn }) => {
         <div>
             <Search setSearchQ={setSearchQ} setRandom={setRandom}/>
             <StyledGrid za grid>
-            {random ? <Lik key={characters[random].char_id} character={characters[random]} /> : 
+            { random ? <Lik key={characters[random - 1].char_id} character={characters[random - 1]} /> : 
             characters.filter(char => char.name.toLowerCase().includes(searchQ)).map(character => <Lik key={character.char_id} character={character} />)}
             </StyledGrid>
         </div>

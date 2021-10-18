@@ -22,7 +22,6 @@ import { styleH2 } from "./Styled Components/styleVariables";
 // slika cover
 // kako da prosledim link slike u StyledCharacter da ga stavi u background image
 const Lik = ({ character }) => {
-
     const [isFlipped, setIsFlipped] = useState(false)
 
     return (
@@ -38,6 +37,7 @@ const Lik = ({ character }) => {
                 <p>Appeared in seasons: {character.appearance.join(", ")}</p>
                 <p>Actor: {character.portrayed}</p>
                 <StyledButton onClick={() => {
+                   
                     // ovde treba da setuje favorites
                 }}> Add to favorites
                 </StyledButton>

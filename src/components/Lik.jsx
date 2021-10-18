@@ -37,7 +37,9 @@ const Lik = ({ character }) => {
                 <p>Occupation: {character.occupation[0]}</p>
                 <p>Appeared in seasons: {character.appearance.join(", ")}</p>
                 <p>Actor: {character.portrayed}</p>
-                <StyledButton onClick={() => { }}>Add to favorites 	&#9825;
+                <StyledButton onClick={() => {
+                    // ovde treba da setuje favorites
+                }}> Add to favorites
                 </StyledButton>
             </StyledBackside>
 

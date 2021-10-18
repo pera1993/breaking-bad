@@ -11,6 +11,10 @@ const Likovi = ({ loggedIn }) => {
     const [searchQ, setSearchQ] = useState(``)
     const [random, setRandom] = useState(null)
 
+    // favorites niz da mi skuplja ideve likova kada se klikne Add to favorites dugme
+    const [favorites, setFavorites] = useState([])
+    console.log(favorites)
+
     useEffect(() => {
         let mounted = true
 
@@ -26,10 +30,10 @@ const Likovi = ({ loggedIn }) => {
 
     return loggedIn ?
         <div>
-            <Search setSearchQ={setSearchQ} setRandom={setRandom}/>
+            <Search setSearchQ={setSearchQ} setRandom={setRandom} />
             <StyledGrid za grid>
-            { random ? <Lik key={characters[random - 1].char_id} character={characters[random - 1]} /> : 
-            characters.filter(char => char.name.toLowerCase().includes(searchQ)).map(character => <Lik key={character.char_id} character={character} />)}
+                {random ? <Lik key={characters[random - 1].char_id} character={characters[random - 1]} /> :
+                    characters.filter(char => char.name.toLowerCase().includes(searchQ)).map(character => <Lik key={character.char_id} character={character} />)}
             </StyledGrid>
         </div>
         :
